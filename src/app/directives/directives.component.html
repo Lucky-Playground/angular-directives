@@ -1,0 +1,27 @@
+<h1>Directive component</h1>
+
+<p *ngIf="visible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, consectetur debitis deserunt doloribus eos, fuga ipsam magnam molestiae natus quas quos repellat temporibus. Alias animi hic obcaecati officia quam quidem.</p>
+<button (click)="visible = !visible">Show or Hide</button>
+<p [class.d-none]="!visible">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquid dolores dolorum earum ex hic, id, iusto labore magni nam obcaecati placeat quas quasi quidem ratione reiciendis rem sit vero.</p>
+
+<ul>
+  <li>{{names[0]}}</li>
+  <li>{{names[1]}}</li>
+  <li>{{names[2]}}</li>
+  <li>{{names[3]}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let name of names; let i= index;">{{i + '.' +name}}</li>
+</ul>
+
+<hr>
+<label>Enter a month</label>
+<input type="text" [value]="month"  (input)="month=$any($event.target).value">
+<ng-container [ngSwitch]="month" >
+  <div *ngSwitchCase="1">Jan</div>
+  <div *ngSwitchCase="2">Fev</div>
+  <div *ngSwitchCase="3">Mar</div>
+  <div *ngSwitchCase="4">April</div>
+  <div *ngSwitchDefault>Invalid Month</div>
+</ng-container>
